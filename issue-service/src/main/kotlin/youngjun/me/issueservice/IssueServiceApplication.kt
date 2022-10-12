@@ -1,11 +1,11 @@
-package youngjun.me.practice
+package youngjun.me.issueservice
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class KotlinPracticeApplication
+class IssueServiceApplication
 
 fun main(args: Array<String>) {
-    runApplication<KotlinPracticeApplication>(*args)
+    runApplication<IssueServiceApplication>(*args)
 }
