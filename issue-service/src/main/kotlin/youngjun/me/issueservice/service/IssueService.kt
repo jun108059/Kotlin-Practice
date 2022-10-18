@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import youngjun.me.issueservice.domain.Issue
 import youngjun.me.issueservice.domain.IssueRepository
+import youngjun.me.issueservice.domain.enums.IssueStatus
 import youngjun.me.issueservice.model.IssueRequest
 import youngjun.me.issueservice.model.IssueResponse
 
@@ -24,4 +25,9 @@ class IssueService(
         )
         return IssueResponse(issueRepository.save(issue))
     }
+
+    @Transactional(readOnly = true)
+    fun getAll(status: IssueStatus) =
+        issueRepository.findAllByStatusOrderByCreatedAtDesc(status)
+            ?.map { IssueResponse(it) }
 }
