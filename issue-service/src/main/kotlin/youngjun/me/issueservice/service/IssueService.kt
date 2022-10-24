@@ -1,10 +1,12 @@
 package youngjun.me.issueservice.service
 
+import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import youngjun.me.issueservice.domain.Issue
 import youngjun.me.issueservice.domain.IssueRepository
 import youngjun.me.issueservice.domain.enums.IssueStatus
+import youngjun.me.issueservice.exception.NotFoundException
 import youngjun.me.issueservice.model.IssueRequest
 import youngjun.me.issueservice.model.IssueResponse
 
@@ -30,4 +32,10 @@ class IssueService(
     fun getAll(status: IssueStatus) =
         issueRepository.findAllByStatusOrderByCreatedAtDesc(status)
             ?.map { IssueResponse(it) }
+
+    @Transactional(readOnly = true)
+    fun getIssue(id: Long): IssueResponse {
+        val issue = issueRepository.findByIdOrNull(id) ?: throw NotFoundException("이슈가 존재하지 않습니다")
+        return IssueResponse(issue)
+    }
 }
