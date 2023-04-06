@@ -24,3 +24,16 @@ fun bubbleSort(numArray: IntArray): IntArray {
     }
     return numArray
 }
+
+fun p2750(args: Array<String>) {
+    val count = readln().toInt()
+    val numList = mutableListOf<Int>()
+    for (i in 0 until count) {
+        numList.add(readln().toInt())
+    }
+    val sortedList = numList.sorted()
+
+    for (number in sortedList) {
+        println(number)
+    }
+}
