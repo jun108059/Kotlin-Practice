@@ -13,14 +13,10 @@ fun main() {
 
 fun sumOfNumbers(numberString: String) =
     numberString.map { it.toString().toLong() }.sum()
+//    numberString.map { it - '0' }.sum()
 
-fun p11720(args: Array<String>) {
+fun p11720() {
     val unUseCount = readln().toInt()
     val numberString = readln()
     println(numberString.map { it.toString().toLong() }.sum())
 }
-
-/*
-
-
- */

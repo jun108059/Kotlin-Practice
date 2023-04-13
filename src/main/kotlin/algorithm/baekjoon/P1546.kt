@@ -17,7 +17,7 @@ fun calculateAverage(scoreList: List<Int>): Double {
     return scoreList.map { it.toDouble() / maxOf(it) * 100 }.average()
 }
 
-fun p1546(args: Array<String>) {
+fun p1546() {
     val numberOfSubjects = readln().toInt()
     val scoreList = readln().split(" ").map { it.toInt() }
     val maxScore = scoreList.maxOrNull() ?: 1
