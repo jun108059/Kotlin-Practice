@@ -7,31 +7,31 @@ package algorithm.baekjoon
  */
 fun main() {
     val targetNumber = readln().toInt()
-    val arr = readln().split(" ").map { it.toLong() }.toLongArray().sortedArray()
+    val numberArray = readln().split(" ").map { it.toLong() }.toLongArray().sortedArray()
 
-    var cnt = 0
+    var count = 0
 
-    repeat(targetNumber) { ptr ->
+    repeat(targetNumber) { pointer ->
         var left = 0
         var right = targetNumber - 1
 
         while (left < right) {
-            val sum = arr[left] + arr[right]
+            val sum = numberArray[left] + numberArray[right]
 
-            if (sum == arr[ptr]) {
-                if (left == ptr || right == ptr) {
-                    if (left == ptr) left++
-                    if (right == ptr) right--
+            if (sum == numberArray[pointer]) {
+                if (left == pointer || right == pointer) {
+                    if (left == pointer) left++
+                    if (right == pointer) right--
                 } else {
-                    cnt++
+                    count++
                     break
                 }
-            } else if (sum < arr[ptr]) {
+            } else if (sum < numberArray[pointer]) {
                 left++
             } else {
                 right--
             }
         }
     }
-    println(cnt)
+    println(count)
 }
