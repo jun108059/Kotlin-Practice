@@ -14,14 +14,12 @@ class CategoryController {
 
     @GetMapping("/category")
     fun getCategoryInfo(
-        @RequestParam("categoryId") categoryId: String
+        @RequestParam("categoryId") categoryId: String,
     ): ModelAndView {
-
         // valueOf - param: enum 값 객체 이름 String
         // ex) PLAY, REST ..
         val enumValueOf = Category.valueOf("PLAY")
         log.info("Enum type valueOf : $enumValueOf")
-
 
         // custom of method - code 에서 name 얻기 위해
         val category = Category.of(categoryId)
