@@ -33,4 +33,4 @@ class Issue(
     @Enumerated(EnumType.STRING)
     var status: IssueStatus,
 
-    ) : BaseEntity()
+) : BaseEntity()

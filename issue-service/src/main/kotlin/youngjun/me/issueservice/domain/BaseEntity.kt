@@ -15,5 +15,5 @@ abstract class BaseEntity(
     var createdAt: LocalDateTime? = null,
 
     @LastModifiedDate
-    var updatedAt: LocalDateTime? = null
+    var updatedAt: LocalDateTime? = null,
 )
