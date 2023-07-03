@@ -16,36 +16,35 @@ import youngjun.me.issueservice.domain.enums.IssueStatus
 import youngjun.me.issueservice.model.IssueRequest
 import youngjun.me.issueservice.service.IssueService
 
-
 @RestController
 @RequestMapping("/api/v1/issues")
 class IssueController(
-    private val issueService: IssueService
+    private val issueService: IssueService,
 ) {
 
     @PostMapping
     fun create(
         authUser: AuthUser,
-        @RequestBody request: IssueRequest
+        @RequestBody request: IssueRequest,
     ) = issueService.create(authUser.userId, request)
 
     @GetMapping
     fun getAll(
         authUser: AuthUser,
-        @RequestParam(required = false, defaultValue = "TODO") status: IssueStatus
+        @RequestParam(required = false, defaultValue = "TODO") status: IssueStatus,
     ) = issueService.getAll(status)
 
     @GetMapping("/{id}")
     fun getDetail(
         authUser: AuthUser,
-        @PathVariable id: Long
+        @PathVariable id: Long,
     ) = issueService.getIssue(id)
 
     @PutMapping("/{id}")
     fun edit(
         authUser: AuthUser,
         @PathVariable id: Long,
-        @RequestBody request: IssueRequest
+        @RequestBody request: IssueRequest,
     ) = issueService.edit(authUser.userId, id, request)
 
     @DeleteMapping("/{id}")
