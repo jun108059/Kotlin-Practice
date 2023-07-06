@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 
 @Configuration
 class WebConfig(
-    private val authUserHandlerArgumentResolver: AuthUserHandlerArgumentResolver
+    private val authUserHandlerArgumentResolver: AuthUserHandlerArgumentResolver,
 ) : WebMvcConfigurationSupport() {
 
     /**
@@ -51,20 +51,19 @@ class AuthUserHandlerArgumentResolver : HandlerMethodArgumentResolver {
         parameter: MethodParameter,
         mavContainer: ModelAndViewContainer?,
         webRequest: NativeWebRequest,
-        binderFactory: WebDataBinderFactory?
+        binderFactory: WebDataBinderFactory?,
     ): Any? {
         // FIXME 인증 서버가 개발되면 수정해야 함
         // JWT 복화화하여 값 가져오도록 바꾸기
         return AuthUser(
             userId = 1,
-            username = "테스트"
+            username = "테스트",
         )
     }
-
 }
 
 data class AuthUser(
     val userId: Long,
     val username: String,
-    val profileUrl: String? = null
+    val profileUrl: String? = null,
 )
