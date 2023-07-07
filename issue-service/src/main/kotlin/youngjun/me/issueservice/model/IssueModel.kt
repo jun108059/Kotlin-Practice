@@ -12,9 +12,8 @@ data class IssueRequest(
     val description: String,
     val type: IssueType,
     val priority: IssuePriority,
-    val status: IssueStatus
+    val status: IssueStatus,
 )
-
 
 data class IssueResponse(
     val id: Long,
@@ -27,7 +26,7 @@ data class IssueResponse(
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     val createdAt: LocalDateTime?,
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    val updatedAt: LocalDateTime?
+    val updatedAt: LocalDateTime?,
 ) {
     companion object {
         operator fun invoke(issue: Issue) =
@@ -41,9 +40,8 @@ data class IssueResponse(
                     priority = priority,
                     status = status,
                     createdAt = createdAt,
-                    updatedAt = updatedAt
+                    updatedAt = updatedAt,
                 )
             }
-
     }
 }
