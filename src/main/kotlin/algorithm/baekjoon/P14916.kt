@@ -14,12 +14,15 @@ fun main() {
             result += n / 5
             println(result)
             return
-        } else if (n >= 2) {
+        } else {
             n -= 2
             result++
-        } else {
-            break
         }
     }
-    println(-1)
+
+    if (n < 0) {
+        println(-1)
+    } else {
+        println(result)
+    }
 }
